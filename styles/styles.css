@@ -1,0 +1,235 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Two-column layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* 20% for left column, 80% for right column */
+    gap: 20px; /* Add some spacing between the columns */
+    margin: 20px;
+}
+
+.left-column {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content within the left column */
+}
+
+.left-column img {
+    max-width: 100%; /* Ensure the image fits within the left column */
+}
+
+/* Style for social links */
+.social-links {
+    margin-top: 20px; /* Add space between personal information and links */
+}
+
+.social-links a {
+    display: inline-block;
+    font-size: 30px; /* Adjust the icon size */
+    color: #0056b3; /* Dark blue color for the icons */
+    margin: 0 10px; /* Add space between icons */
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #007BFF; /* Light blue color for the icons on hover */
+}
+
+/* Style for the right column (sections) */
+.right-column {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Display only one column for small screens */
+        gap: 0; /* Remove the gap between columns */
+        margin: 10px; /* Adjust the margin for spacing */
+    }
+
+    .left-column {
+        padding: 20px; /* Adjust padding as needed */
+        text-align: center;
+    }
+
+    .right-column {
+        padding: 20px;
+    }
+}
+.navigation {
+    text-align: right; /* Align the navigation links to the right within the right column */
+    background-color: #0056b3; /* Dark blue background for the navigation bar */
+    border-radius: 1px;
+    padding: 10px 0; /* Add padding to the top and bottom of the navigation bar */
+}
+
+.navigation a {
+    display: inline-block; /* Display the navigation links in a row */
+    margin-right: 20px; /* Add space between navigation links */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Add padding around navigation links */
+    transition: color 0.3s; /* Smooth transition for color on hover */
+}
+
+.navigation a:hover {
+    color: #007BFF; /* Light blue text color on hover */
+    border-radius: 0; /* Remove rounded edges on hover */
+}
+
+/* Responsive styles for navigation links */
+@media (max-width: 768px) {
+    .navigation {
+        text-align: center; /* Center align the navigation links on small screens */
+    }
+
+    .navigation a {
+        margin: 0 10px; /* Add space on both sides of navigation links */
+        display: block; /* Stack navigation links vertically on small screens */
+    }
+}
+/* Section styles */
+.section {
+    margin-top: 20px; /* Add space above sections */
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #0056b3;
+}
+
+.section p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Styles for the Publications section */
+#publications {
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#publications h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.publication-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.publication-year {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.publication-year h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.publication-item {
+    border-left: 2px solid #007BFF;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 15px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .publication-list {
+        flex-direction: column;
+    }
+
+    .publication-year {
+        margin: 0;
+    }
+}
+
+/* Styles for the authors of the publication */
+.publication-authors {
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* Styles for the publication title */
+.publication-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Styles for the conference */
+.publication-conference {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* Styles for publication details, like "Under Review" */
+.publication-details {
+    font-weight: normal;
+    color: #777; /* You can adjust the color as needed */
+    margin-top: 5px;
+}
+
+
+/* Styles for the internship section */
+#internships {
+    background-color: #f7f7f7; /* Light gray background */
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Styles for each internship block */
+.internship {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex; /* Enable flex layout for logo and details */
+}
+
+/* Styles for the logo */
+.logo img {
+    max-width: 80px; /* Adjust the width as needed */
+    margin-right: 20px; /* Add spacing between the logo and details */
+}
+
+.internship h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.internship p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.internship .internship-location {
+    margin-left: 10px;
+    color: #777;
+}
+
+.internship .internship-date {
+    margin-left: 10px;
+    color: #777;
+}
+
