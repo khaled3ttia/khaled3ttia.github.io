@@ -1,235 +1,388 @@
-/* Global styles */
-body {
-    font-family: Arial, sans-serif;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+:root {
+    --bg: #f4efe7;
+    --surface: #fffdf8;
+    --surface-strong: #fff;
+    --ink: #18222d;
+    --muted: #54606e;
+    --line: #d9d2c4;
+    --brand: #0f6c66;
+    --brand-dark: #0a4c48;
+    --accent: #d88631;
+    --accent-soft: #fff0de;
+    --shadow: 0 18px 40px rgba(24, 34, 45, 0.08);
+    --radius: 22px;
 }
 
-/* Two-column layout */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at top left, rgba(216, 134, 49, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 108, 102, 0.16), transparent 32%),
+        linear-gradient(180deg, #f8f3ea 0%, #f3efe7 100%);
+}
+
+a {
+    color: inherit;
+}
+
 .container {
+    width: min(1160px, calc(100% - 32px));
+    margin: 24px auto 32px;
     display: grid;
-    grid-template-columns: 1fr 4fr; /* 20% for left column, 80% for right column */
-    gap: 20px; /* Add some spacing between the columns */
-    margin: 20px;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.left-column,
+.right-column {
+    background: rgba(255, 253, 248, 0.95);
+    border: 1px solid rgba(217, 210, 196, 0.88);
+    border-radius: calc(var(--radius) + 2px);
+    box-shadow: var(--shadow);
 }
 
 .left-column {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the content within the left column */
+    position: sticky;
+    top: 24px;
+    padding: 28px;
+    text-align: center;
 }
 
 .left-column img {
-    max-width: 100%; /* Ensure the image fits within the left column */
+    display: block;
+    width: min(210px, 80%);
+    margin: 0 auto 22px;
+    border-radius: 28px;
+    object-fit: cover;
+    box-shadow: 0 14px 28px rgba(24, 34, 45, 0.14);
 }
 
-/* Style for social links */
+.left-column h1 {
+    margin: 0 0 10px;
+    font-size: 2.05rem;
+    letter-spacing: -0.03em;
+}
+
+.left-column p {
+    margin: 8px 0;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
 .social-links {
-    margin-top: 20px; /* Add space between personal information and links */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
 }
 
 .social-links a {
-    display: inline-block;
-    font-size: 30px; /* Adjust the icon size */
-    color: #0056b3; /* Dark blue color for the icons */
-    margin: 0 10px; /* Add space between icons */
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(15, 108, 102, 0.1);
+    color: var(--brand);
     text-decoration: none;
+    font-size: 1.4rem;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .social-links a:hover {
-    color: #007BFF; /* Light blue color for the icons on hover */
+    transform: translateY(-2px);
+    background: var(--brand);
+    color: #fff;
 }
 
-/* Style for the right column (sections) */
 .right-column {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 22px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr; /* Display only one column for small screens */
-        gap: 0; /* Remove the gap between columns */
-        margin: 10px; /* Adjust the margin for spacing */
-    }
-
-    .left-column {
-        padding: 20px; /* Adjust padding as needed */
-        text-align: center;
-    }
-
-    .right-column {
-        padding: 20px;
-    }
-}
 .navigation {
-    text-align: right; /* Align the navigation links to the right within the right column */
-    background-color: #0056b3; /* Dark blue background for the navigation bar */
-    border-radius: 1px;
-    padding: 10px 0; /* Add padding to the top and bottom of the navigation bar */
+    position: sticky;
+    top: 18px;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    background: rgba(255, 253, 248, 0.82);
+    border: 1px solid rgba(217, 210, 196, 0.8);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+}
+
+.navigation-main {
+    display: contents;
 }
 
 .navigation a {
-    display: inline-block; /* Display the navigation links in a row */
-    margin-right: 20px; /* Add space between navigation links */
-    color: #fff; /* White text color */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: var(--muted);
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px; /* Add padding around navigation links */
-    transition: color 0.3s; /* Smooth transition for color on hover */
+    font-weight: 700;
+    font-size: 0.96rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .navigation a:hover {
-    color: #007BFF; /* Light blue text color on hover */
-    border-radius: 0; /* Remove rounded edges on hover */
+    background: rgba(15, 108, 102, 0.12);
+    color: var(--brand-dark);
+    transform: translateY(-1px);
 }
 
-/* Responsive styles for navigation links */
-@media (max-width: 768px) {
-    .navigation {
-        text-align: center; /* Center align the navigation links on small screens */
-    }
-
-    .navigation a {
-        margin: 0 10px; /* Add space on both sides of navigation links */
-        display: block; /* Stack navigation links vertically on small screens */
-    }
+.navigation-cta {
+    flex-shrink: 1;
 }
-/* Section styles */
+
 .section {
-    margin-top: 20px; /* Add space above sections */
+    margin-top: 18px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid rgba(217, 210, 196, 0.88);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .section h2 {
-    font-size: 24px;
-    color: #0056b3;
+    margin: 0 0 14px;
+    font-size: 1.9rem;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.section h3 {
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    letter-spacing: -0.03em;
 }
 
 .section p {
-    font-size: 16px;
-    color: #333;
+    margin: 0 0 12px;
+    color: var(--muted);
+    line-height: 1.75;
 }
 
-/* Styles for the Publications section */
+.section a {
+    color: var(--brand);
+}
+
+.news-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(217, 210, 196, 0.8);
+}
+
+.news-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
 #publications {
-    background-color: #f5f5f5;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#publications h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(249, 246, 240, 0.98));
 }
 
 .publication-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 }
 
 .publication-year {
-    flex: 1;
-    margin: 0 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.66);
+    border: 1px solid rgba(217, 210, 196, 0.88);
+    border-radius: 18px;
 }
 
 .publication-year h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    color: var(--brand-dark);
 }
 
 .publication-item {
-    border-left: 2px solid #007BFF;
-    padding: 10px 0 10px 20px;
-    margin-bottom: 15px;
+    padding: 14px 0 14px 18px;
+    margin-bottom: 12px;
+    border-left: 2px solid rgba(15, 108, 102, 0.35);
 }
 
-/* Media query for responsiveness */
-@media (max-width: 768px) {
-    .publication-list {
-        flex-direction: column;
-    }
-
-    .publication-year {
-        margin: 0;
-    }
+.publication-item:last-child {
+    margin-bottom: 0;
 }
 
-/* Styles for the authors of the publication */
 .publication-authors {
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
-    margin-bottom: 5px;
+    color: var(--ink);
+    margin-bottom: 6px;
 }
 
-/* Styles for the publication title */
 .publication-title {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
 }
 
-/* Styles for the conference */
-.publication-conference {
-    font-style: italic;
-    margin-bottom: 5px;
-}
-
-/* Styles for publication details, like "Under Review" */
+.publication-conference,
 .publication-details {
-    font-weight: normal;
-    color: #777; /* You can adjust the color as needed */
-    margin-top: 5px;
+    color: var(--muted);
 }
 
-
-/* Styles for the internship section */
 #internships {
-    background-color: #f7f7f7; /* Light gray background */
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(246, 251, 250, 0.98));
 }
 
-/* Styles for each internship block */
 .internship {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    display: flex; /* Enable flex layout for logo and details */
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    margin: 14px 0;
+    border: 1px solid rgba(217, 210, 196, 0.88);
+    border-radius: 18px;
+    background: var(--surface-strong);
 }
 
-/* Styles for the logo */
 .logo img {
-    max-width: 80px; /* Adjust the width as needed */
-    margin-right: 20px; /* Add spacing between the logo and details */
+    max-width: 78px;
+    max-height: 78px;
+    display: block;
 }
 
 .internship h3 {
-    font-size: 20px;
-    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .internship p {
-    margin: 5px 0;
-    font-size: 16px;
+    margin: 0;
 }
 
-.internship .internship-location {
+.internship-location,
+.internship-date {
+    display: inline-block;
     margin-left: 10px;
-    color: #777;
+    color: var(--muted);
 }
 
-.internship .internship-date {
-    margin-left: 10px;
-    color: #777;
+#teaching p {
+    padding-left: 18px;
+    position: relative;
 }
 
+#teaching p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.tutoring-preview {
+    background: linear-gradient(135deg, #eef8f6 0%, #fbfdfb 100%);
+    border: 1px solid rgba(15, 108, 102, 0.18);
+}
+
+.tutoring-preview h2 {
+    margin-bottom: 10px;
+}
+
+.tutoring-preview-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--brand);
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 12px 24px rgba(15, 108, 102, 0.18);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tutoring-preview-link:hover {
+    background: var(--brand-dark);
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1040px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .left-column {
+        position: static;
+    }
+
+    .publication-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: min(100% - 20px, 1160px);
+        margin-top: 10px;
+        gap: 16px;
+    }
+
+    .left-column,
+    .right-column,
+    .section {
+        padding: 20px;
+    }
+
+    .navigation {
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 24px;
+    }
+
+    .navigation-main {
+        justify-content: center;
+    }
+
+    .navigation a {
+        width: 100%;
+    }
+
+    .internship {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .internship-location,
+    .internship-date {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+    }
+}
